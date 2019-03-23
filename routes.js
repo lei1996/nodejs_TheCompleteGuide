@@ -1,13 +1,13 @@
 const fs = require("fs");
 
-const requestHeandler = (req, res) => {
+const requestHandler = (req, res) => {
   const url = req.url;
   const method = req.method;
   if (url === "/") {
     res.write("<html>");
-    res.write("<head><title>Enter Message</title></head>");
+    res.write("<head><title>Enter Message</title><head>");
     res.write(
-      "<body><form action='/message' method='POST'><input type='text' name='message' /><button type='submit'>Send!</button></form></body>"
+      '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
     );
     res.write("</html>");
     return res.end();
@@ -18,7 +18,7 @@ const requestHeandler = (req, res) => {
       console.log(chunk);
       body.push(chunk);
     });
-    req.on("end", () => {
+    return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=")[1];
       fs.writeFile("message.txt", message, err => {
@@ -30,13 +30,21 @@ const requestHeandler = (req, res) => {
   }
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
-  res.write("<head><title>My First Page</title></head>");
+  res.write("<head><title>My First Page</title><head>");
   res.write("<body><h1>Hello from my Node.js Server!</h1></body>");
   res.write("</html>");
   res.end();
 };
 
+// module.exports = requestHandler;
+
 module.exports = {
-  handler: requestHeandler,
+  handler: requestHandler,
   someText: "Some hard coded text"
 };
+
+// module.exports.handler = requestHandler;
+// module.exports.someText = 'Some text';
+
+// exports.handler = requestHandler;
+// exports.someText = "Some hard coded text";
