@@ -1,0 +1,24 @@
+{
+  "name": "node_course",
+  "version": "1.0.0",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lei1996/nodejs_TheCompleteGuide.git"
+  },
+  "author": "lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lei1996/nodejs_TheCompleteGuide/issues"
+  },
+  "homepage": "https://github.com/lei1996/nodejs_TheCompleteGuide#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
