@@ -10,6 +10,7 @@ const requestHandler = (req, res) => {
       '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
     );
     res.write("</html>");
+    // 不加return  会有 运行时错误
     return res.end();
   }
 
